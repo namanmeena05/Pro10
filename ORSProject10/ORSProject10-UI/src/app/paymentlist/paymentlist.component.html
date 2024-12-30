@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<table style="padding: 10%;">
+    <tr>
+        <td>
+            <input type="text" class="form-control" [(ngModel)]="form.searchParams.paymentMode"
+              placeholder="{{'Search paymentMode'}}"></td>
+        <td><button (click)="search()">search</button></td>
+    </tr>
+    
+</table>
+<table border="1" width="100%" style="padding: 10%;">
+    <tr >
+        <th>paymentMode</th>
+        <th>paymentAmount</th>
+        <th>paymentStatus</th>
+        <th>edit</th>
+          </tr>
+    <tr *ngFor="let m of form.list">
+        
+        <td>{{m.paymentMode}}</td>
+        <td>{{m.paymentAmount}}</td>
+        <td>{{m.paymentStatus}}</td>
+        <td><button (click)="forward('/payment/'+m.id)">edit</button></td>
+    </tr>
+</table>
+<app-footer></app-footer>

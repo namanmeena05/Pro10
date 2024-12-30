@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div align="center" style="padding: 10%;" >
+
+ <div>
+  <label *ngIf="form.data.id != null && form.data.id > 0">Update</label>
+  <label *ngIf="form.data.id == null && form.data.id == 0">save</label>
+  <br>
+  <br>
+  <br>
+
+    <div style="color: green;" *ngIf="form.message != null">{{form.message}}</div>
+    <label for="">Payment modes:</label>
+    <input type="text" [(ngModel)]="form.data.paymentMode" name="paymentMode">
+
+  </div>
+  <div style="color: red;" *ngIf="form.inputerror !=null">{{form.inputerror.paymentMode}}</div>
+  <div>
+
+    <label>Payment Amount:</label>
+    <input type="text" [(ngModel)]="form.data.paymentAmount" name="paymentAmount">
+  </div>
+  <div style="color: red;" *ngIf="form.inputerror !=null">{{form.inputerror.paymentAmount}}</div>
+  <div>
+    <label>Payment Status:</label>
+    <input type="text" [(ngModel)]="form.data.paymentStatus" name="paymentStatus">
+  </div>
+  <div style="color: red;"  *ngIf="form.inputerror !=null">{{form.inputerror.paymentStatus}}</div>
+  <div *ngIf="form.data.id > 0">
+    <button (click)="update()">update</button>
+  </div>
+  <div *ngIf="! form.data.id > 0">
+    <button (click)="save()">Save</button>
+  </div>
+</div>
+
+<app-footer></app-footer>
